@@ -1,0 +1,21 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say service count
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        path: "deploy"
+
+    - name: Deploy App Engine
+      id: deploy
+      uses: quenginedev/sst-deploy@main
+      with:
+        access-key-id:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+        secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        region: ${{ secrets.AWS_DEFAULT_REGION }}
+        path: './'
