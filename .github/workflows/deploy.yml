@@ -9,9 +9,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        path: "deploy"
+        path: "./"
 
-    - name: Deploy App Engine
+    # - name: Install Dependencies
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: 16
+    # - run: npm i -g yarn
+    # - run: yarn install
+    # - run: ls
+
+    - name: Deploy SST app
       id: deploy
       uses: quenginedev/sst-deploy@main
       with:
