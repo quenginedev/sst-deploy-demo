@@ -11,13 +11,10 @@ jobs:
       with:
         path: "./"
 
-    # - name: Install Dependencies
-    #   uses: actions/setup-node@v3
-    #   with:
-    #     node-version: 16
-    # - run: npm i -g yarn
-    # - run: yarn install
-    # - run: ls
+    - name: Install Dependencies
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
 
     - name: Deploy SST app
       id: deploy
